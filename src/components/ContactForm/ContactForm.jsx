@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { addContacts } from 'redux/slice';
+// import { addContacts } from 'redux/slice';
+import { contactsOperations } from 'redux/contacts';
 import { contactsSelectors } from 'redux/contacts';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -20,12 +21,12 @@ const ContactForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    const contactWillAdded = { name, number, id: nanoid() };
+    const contactWillAdded = { name, phone: number };
 
     if (contacts.find(contact => contact.name === name)) {
       Notiflix.Notify.info(`${name} is already in contacts`);
     } else {
-      dispatch(addContacts(contactWillAdded));
+      dispatch(contactsOperations.addContacts(contactWillAdded));
     }
 
     setName('');
