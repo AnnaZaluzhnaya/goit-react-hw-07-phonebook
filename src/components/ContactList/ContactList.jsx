@@ -2,12 +2,13 @@ import React from 'react';
 import ContactListItem from 'components/ContactListItem';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getContacts } from 'redux/selectors';
+// import { getContacts } from 'redux/selectors';
 import PropTypes from 'prop-types';
-import * as contactsOperations from 'redux/contacts/contactsOperations';
+// import * as contactsOperations from 'redux/contacts/contactsOperations';
+import { contactsOperations, contactsSelectors } from 'redux/contacts';
 
 const ContactList = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(contactsSelectors.getContacts);
   // const value = useSelector(getFilteredContacts);
   const dispatch = useDispatch();
 
@@ -19,7 +20,7 @@ const ContactList = () => {
   //   return contacts.filter(contact =>
   //     contact.name.toLowerCase().includes(value)
   //   );
-  // };
+  // }
 
   // let searchContact = value === '' ? contacts : getFilteredNames();
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getFilteredContacts } from 'redux/selectors';
+import { contactsSelectors } from 'redux/contacts';
 import { changeFilter } from 'redux/slice';
 import style from './Filter.module.css';
 import PropTypes from 'prop-types';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const value = useSelector(getFilteredContacts);
+  const value = useSelector(contactsSelectors.getFilteredContacts);
 
   const inputChange = event => {
     const changeValue = event.target.value;
