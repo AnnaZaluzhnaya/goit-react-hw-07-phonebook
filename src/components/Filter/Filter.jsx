@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { contactsSelectors } from 'redux/contacts';
-import { changeFilter } from 'redux/slice';
+import { filter } from 'redux/contacts/contactsActions';
 import style from './Filter.module.css';
 import PropTypes from 'prop-types';
 
@@ -11,13 +11,13 @@ const Filter = () => {
 
   const inputChange = event => {
     const changeValue = event.target.value;
-    dispatch(changeFilter(changeValue));
+    dispatch(filter(changeValue));
   };
 
   return (
     <div className={style.filter}>
       <label>
-        <p>Find contacts by name</p>
+        <p className={style.filterName}>Find contacts by name</p>
         <input
           className={style.input}
           type="text"

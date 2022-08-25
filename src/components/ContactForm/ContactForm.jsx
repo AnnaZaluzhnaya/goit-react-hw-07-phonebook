@@ -1,5 +1,4 @@
 import { useState } from 'react';
-// import { addContacts } from 'redux/slice';
 import { contactsOperations } from 'redux/contacts';
 import { contactsSelectors } from 'redux/contacts';
 import { useDispatch, useSelector } from 'react-redux';
